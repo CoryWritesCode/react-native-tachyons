@@ -1,11 +1,14 @@
 {
   "name": "@shipt/react-native-tachyons",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Tachyons for RN",
   "main": "dist/index.js",
   "repository": "git@github.com:newshipt/react-native-tachyons",
   "author": "Jeremy Dunn <jeremy@shipt.com> && Alan Kenyon <alan@shipt.com>",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged",
@@ -14,11 +17,11 @@
   },
   "scripts": {
     "build": "babel src -d dist",
-    "build:publish": "yarn build; yarn publish",
     "docs": "node scripts/generateStyleTable.js",
     "draft-release": "node scripts/release.js",
     "lint": "eslint src",
     "test": "jest --watchAll --colors",
+    "prepublish": "yarn build",
     "benchmark": "yarn build && yarn benchmark-react-native-noop && yarn benchmark-react-native-stylesheet && yarn benchmark-react-native-style-tachyons && yarn benchmark-shipt-react-native-tachyons && yarn benchmark-shipt-react-native-styled-tachyons",
     "benchmark-react-native-noop": "react-benchmark -u 5 benchmark/react-native-noop.js",
     "benchmark-react-native-stylesheet": "react-benchmark -u 5 benchmark/react-native-stylesheet.js",
